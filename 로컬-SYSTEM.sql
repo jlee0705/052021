@@ -1,0 +1,16 @@
+CREATE TABLE stdTBL 
+( stdName   NCHAR(5) NOT NULL PRIMARY KEY,
+  addr	    NCHAR(2) NOT NULL
+);
+CREATE TABLE clubTBL 
+( clubName    NCHAR(5) NOT NULL PRIMARY KEY,
+  roomNo      NCHAR(4) NOT NULL
+);
+CREATE SEQUENCE stdclubSEQ;
+CREATE TABLE stdclubTBL
+(  idNum    NUMBER(5) NOT NULL PRIMARY KEY, 
+   stdName  NCHAR(5) NOT NULL,
+   clubName NCHAR(5) NOT NULL,
+FOREIGN KEY(stdName) REFERENCES stdTBL(stdName),
+FOREIGN KEY(clubName) REFERENCES clubTBL(clubName)
+);
